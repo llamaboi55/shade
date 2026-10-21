@@ -59,7 +59,7 @@ git clone https://github.com/llamaboi55/shade && cd shade && npm install && npm 
 - In settings you can change darkness, edge softness, spotlight size, band height, color (black, midnight, forest or frost) and the curtain message. You can also make Shade start with your computer.
 - It covers every connected screen. If you plug in or remove a monitor, press **Refresh** in settings.
 
-<img src="docs/screenshots/05-settings.png" width="480" alt="Shade settings">
+<img src="docs/screenshots/05-settings.png" width="560" alt="Shade settings">
 
 ## Compared to paid privacy screen apps
 

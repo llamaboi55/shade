@@ -1,55 +1,66 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="ui-auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shade</title>
+  <link rel="stylesheet" href="css/ui.css">
   <link rel="stylesheet" href="css/settings.css">
+  <script src="js/ui.js"></script>
 </head>
-<body>
-  <header>
-    <div class="brand"><img src="icon.png" alt="" width="36" height="36"><div><h1>Shade</h1><p>Dim everything except what you're working on. Clicks always go through.</p></div></div>
+<body class="ui">
+  <header class="ui-header">
+    <img src="icon.png" alt="">
+    <div><h1>Shade</h1><p>Dim everything except what you're working on. Clicks always go through.</p></div>
+    <div class="end"><span class="ui-badge" id="state">Off</span></div>
   </header>
-  <main>
-    <section>
-      <h2>Mode <small><kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>S</kbd> turns it on and off</small></h2>
+  <main class="ui-page">
+    <section class="ui-section">
+      <h2>Mode <span class="end keys"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>S</kbd> turns it on and off</span></h2>
+      <p class="desc">Pick what stays bright. Everything else fades into the shade.</p>
       <div class="modes" id="modes" role="radiogroup" aria-label="Mode">
-        <button type="button" data-mode="off" role="radio"><span class="pic off"></span><b>Off</b><small>Nothing dimmed</small></button>
-        <button type="button" data-mode="spotlight" role="radio"><span class="pic spotlight"></span><b>Spotlight</b><small>A circle around your mouse</small></button>
-        <button type="button" data-mode="window" role="radio"><span class="pic window"></span><b>Window</b><small>Only the window you're using</small></button>
-        <button type="button" data-mode="band" role="radio"><span class="pic band"></span><b>Reading band</b><small>A strip that follows the mouse</small></button>
-        <button type="button" data-mode="curtain" role="radio"><span class="pic curtain"></span><b>Curtain</b><small>Cover everything now (<kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>X</kbd>)</small></button>
+        <button type="button" class="ui-tile" data-mode="off" role="radio"><span class="pic off"></span><b>Off</b><small>Nothing dimmed</small></button>
+        <button type="button" class="ui-tile" data-mode="spotlight" role="radio"><span class="pic spotlight"></span><b>Spotlight</b><small>A circle around your mouse</small></button>
+        <button type="button" class="ui-tile" data-mode="window" role="radio"><span class="pic window"></span><b>Window</b><small>Only the window you're using</small></button>
+        <button type="button" class="ui-tile" data-mode="band" role="radio"><span class="pic band"></span><b>Reading band</b><small>A strip that follows the mouse</small></button>
+        <button type="button" class="ui-tile" data-mode="curtain" role="radio"><span class="pic curtain"></span><b>Curtain</b><small>Cover everything now</small></button>
       </div>
     </section>
-    <section class="settings">
+
+    <section class="ui-section">
       <h2>Look</h2>
-      <label>Darkness <input type="range" id="dim" min="0.5" max="1" step="0.01"></label>
-      <label>Edge softness <input type="range" id="softness" min="0" max="1" step="0.05"></label>
-      <label>Spotlight size <input type="range" id="radius" min="80" max="500" step="10"></label>
-      <label>Reading band height <input type="range" id="band" min="40" max="500" step="10"></label>
-      <div class="colors" role="radiogroup" aria-label="Shade color">
-        <span>Color</span>
-        <button type="button" data-color="black" title="Black"></button>
-        <button type="button" data-color="midnight" title="Midnight"></button>
-        <button type="button" data-color="forest" title="Forest"></button>
-        <button type="button" data-color="frost" title="Frost"></button>
+      <label class="ui-row"><span class="label"><b>Darkness</b><small>How deep the shade goes</small></span><input type="range" id="dim" min="0.5" max="1" step="0.01" data-format="pct"><output for="dim"></output></label>
+      <label class="ui-row"><span class="label"><b>Edge softness</b><small>A crisp edge or a gentle fade</small></span><input type="range" id="softness" min="0" max="1" step="0.05" data-format="pct"><output for="softness"></output></label>
+      <label class="ui-row"><span class="label"><b>Spotlight size</b></span><input type="range" id="radius" min="80" max="500" step="10" data-format="px"><output for="radius"></output></label>
+      <label class="ui-row"><span class="label"><b>Reading band height</b></span><input type="range" id="band" min="40" max="500" step="10" data-format="px"><output for="band"></output></label>
+      <div class="ui-row"><span class="label"><b>Colour</b><small>The tint of the shade</small></span>
+        <div class="colors" role="radiogroup" aria-label="Shade colour">
+          <button type="button" data-color="black" title="Black"></button>
+          <button type="button" data-color="midnight" title="Midnight"></button>
+          <button type="button" data-color="forest" title="Forest"></button>
+          <button type="button" data-color="frost" title="Frost"></button>
+        </div>
       </div>
     </section>
-    <section class="settings">
-      <h2>Curtain</h2>
-      <label>Message <input type="text" id="message" maxlength="80"></label>
-      <label class="check"><input type="checkbox" id="clock"> Show the time</label>
+
+    <section class="ui-section">
+      <h2>Curtain <span class="end keys"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>X</kbd></span></h2>
+      <p class="desc">Covers every screen at once, for a break or when someone walks past.</p>
+      <label class="ui-row"><span class="label"><b>Message</b></span><input type="text" id="message" maxlength="80" placeholder="Back in a moment"></label>
+      <label class="ui-row"><span class="label"><b>Show the time</b></span><input type="checkbox" id="clock"></label>
     </section>
-    <section class="settings">
+
+    <section class="ui-section">
       <h2>App</h2>
-      <label class="check"><input type="checkbox" id="autostart"> Start when my computer starts</label>
-      <button type="button" class="btn ghost" id="refit">Added or removed a screen? Refresh</button>
+      <label class="ui-row"><span class="label"><b>Start with my computer</b></span><input type="checkbox" id="autostart"></label>
+      <div class="ui-row"><span class="label"><b>Screens changed?</b><small>Plugged in or removed a monitor</small></span><button type="button" class="ui-btn" id="refit">Refresh screens</button></div>
     </section>
+
+    <footer class="ui-footer">
+      <span>Free and open source. Shade never takes screenshots and never connects to the internet.</span>
+      <button type="button" id="quit" class="ui-link">Quit Shade</button>
+    </footer>
   </main>
-  <footer>
-    <span>Free and open source. Shade never takes screenshots and never connects to the internet.</span>
-    <button type="button" id="quit" class="btn ghost">Quit Shade</button>
-  </footer>
   <script type="module" src="js/settings.js"></script>
 </body>
 </html>

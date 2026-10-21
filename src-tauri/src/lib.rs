@@ -186,7 +186,7 @@ fn open_settings(app: AppHandle) {
     }
     let _ = WebviewWindowBuilder::new(&app, "settings", WebviewUrl::App("settings.html".into()))
         .title("Shade")
-        .inner_size(720.0, 640.0)
+        .inner_size(760.0, 720.0)
         .min_inner_size(520.0, 480.0)
         .center()
         .build();

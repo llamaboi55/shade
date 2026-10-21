@@ -11,8 +11,12 @@ function update(patch) {
   render();
 }
 
+const NAMES = { off: 'Off', spotlight: 'Spotlight on', window: 'Window on', band: 'Reading band on', curtain: 'Curtain down' };
+
 function showMode(mode) {
   for (const b of document.querySelectorAll('#modes button')) b.setAttribute('aria-checked', String(b.dataset.mode === mode));
+  $('state').textContent = NAMES[mode] || 'Off';
+  $('state').classList.toggle('live', mode !== 'off');
 }
 
 function render() {
