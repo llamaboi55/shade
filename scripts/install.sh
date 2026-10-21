@@ -63,7 +63,7 @@ Linux)
     printf '[Desktop Entry]\nName=Shade\nComment=A privacy screen for your desktop\nExec=%s\nIcon=shade\nType=Application\nCategories=Utility;Security;\n' "$BIN/shade" > "$APPS/shade.desktop"
     say "Installed to $BIN/shade (make sure $BIN is on your PATH)"
   fi
-  say "Done. Shade is running in your tray. Press Alt Shift S to turn it on."
+  say "Done. Open Shade from your app menu, then press Alt Shift S to turn it on."
   ;;
 *) fail "this script is for macOS and Linux. On Windows, see the README." ;;
 esac
