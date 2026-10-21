@@ -1,0 +1,38 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: transparent; user-select: none; -webkit-user-select: none; }
+canvas { position: fixed; inset: 0; display: block; pointer-events: none; z-index: 10; }
+.desktop { display: none; }
+
+.curtain {
+  --shade: #08090c;
+  position: fixed; inset: 0; z-index: 20; display: grid; place-content: center; justify-items: center; gap: 10px;
+  background: radial-gradient(1200px 700px at 50% 40%, color-mix(in srgb, var(--shade) 70%, #3a4a6a) 0%, var(--shade) 70%);
+  color: rgba(255,255,255,0.92); font-family: system-ui, -apple-system, "Segoe UI", Ubuntu, sans-serif;
+  animation: in 0.12s ease-out;
+}
+.curtain[hidden] { display: none; }
+.curtain .clock { font-size: clamp(64px, 12vw, 160px); font-weight: 200; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.curtain .message { font-size: 22px; opacity: 0.8; }
+.curtain small { margin-top: 28px; opacity: 0.45; font-size: 13px; }
+@keyframes in { from { opacity: 0; } to { opacity: 1; } }
+
+/* Browser preview: a pretend desktop with a few windows under the shade. */
+.preview body { background: linear-gradient(135deg, #5f7fb5, #9a86c9 50%, #e2a5a0); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.preview .desktop { display: block; }
+.fake-window { position: absolute; background: #fff; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.35); overflow: hidden; color: #1d1d24; }
+.fake-window.active { z-index: 2; }
+.fake-window .bar { display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px; background: #eef0f4; font-size: 13px; color: #555; }
+.fake-window .bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.fake-window .bar i:nth-child(2) { background: #febc2e; }
+.fake-window .bar i:nth-child(3) { background: #28c840; }
+.fake-window .bar span { margin-left: 8px; }
+.mail { left: 4%; top: 8%; width: 40%; height: 62%; }
+.mail .rows p { margin: 0; padding: 14px 16px; border-bottom: 1px solid #eee; font-size: 14px; }
+.mail .rows b { display: block; margin-bottom: 2px; }
+.doc { left: 30%; top: 22%; width: 42%; height: 66%; }
+.doc .page { padding: 18px 26px; font-size: 15px; line-height: 1.6; }
+.doc h2 { margin: 6px 0 12px; font-size: 22px; }
+.chat { right: 4%; top: 12%; width: 26%; height: 54%; }
+.chat .bubbles { display: flex; flex-direction: column; gap: 8px; padding: 16px; font-size: 14px; }
+.chat p { margin: 0; padding: 8px 12px; border-radius: 16px; max-width: 80%; }
+.chat .them { background: #e9e9ef; align-self: flex-start; }
+.chat .me { background: #3b82f6; color: #fff; align-self: flex-end; }

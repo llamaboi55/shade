@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shade</title>
+  <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><img src="icon.png" alt="" width="36" height="36"><div><h1>Shade</h1><p>Dim everything except what you're working on. Clicks always go through.</p></div></div>
+  </header>
+  <main>
+    <section>
+      <h2>Mode <small><kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>S</kbd> turns it on and off</small></h2>
+      <div class="modes" id="modes" role="radiogroup" aria-label="Mode">
+        <button type="button" data-mode="off" role="radio"><span class="pic off"></span><b>Off</b><small>Nothing dimmed</small></button>
+        <button type="button" data-mode="spotlight" role="radio"><span class="pic spotlight"></span><b>Spotlight</b><small>A circle around your mouse</small></button>
+        <button type="button" data-mode="window" role="radio"><span class="pic window"></span><b>Window</b><small>Only the window you're using</small></button>
+        <button type="button" data-mode="band" role="radio"><span class="pic band"></span><b>Reading band</b><small>A strip that follows the mouse</small></button>
+        <button type="button" data-mode="curtain" role="radio"><span class="pic curtain"></span><b>Curtain</b><small>Cover everything now (<kbd>Alt</kbd> <kbd>Shift</kbd> <kbd>X</kbd>)</small></button>
+      </div>
+    </section>
+    <section class="settings">
+      <h2>Look</h2>
+      <label>Darkness <input type="range" id="dim" min="0.5" max="1" step="0.01"></label>
+      <label>Edge softness <input type="range" id="softness" min="0" max="1" step="0.05"></label>
+      <label>Spotlight size <input type="range" id="radius" min="80" max="500" step="10"></label>
+      <label>Reading band height <input type="range" id="band" min="40" max="500" step="10"></label>
+      <div class="colors" role="radiogroup" aria-label="Shade color">
+        <span>Color</span>
+        <button type="button" data-color="black" title="Black"></button>
+        <button type="button" data-color="midnight" title="Midnight"></button>
+        <button type="button" data-color="forest" title="Forest"></button>
+        <button type="button" data-color="frost" title="Frost"></button>
+      </div>
+    </section>
+    <section class="settings">
+      <h2>Curtain</h2>
+      <label>Message <input type="text" id="message" maxlength="80"></label>
+      <label class="check"><input type="checkbox" id="clock"> Show the time</label>
+    </section>
+    <section class="settings">
+      <h2>App</h2>
+      <label class="check"><input type="checkbox" id="autostart"> Start when my computer starts</label>
+      <button type="button" class="btn ghost" id="refit">Added or removed a screen? Refresh</button>
+    </section>
+  </main>
+  <footer>
+    <span>Free and open source. Shade never takes screenshots and never connects to the internet.</span>
+    <button type="button" id="quit" class="btn ghost">Quit Shade</button>
+  </footer>
+  <script type="module" src="js/settings.js"></script>
+</body>
+</html>

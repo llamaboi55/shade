@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shade</title>
+  <link rel="stylesheet" href="css/overlay.css">
+</head>
+<body data-mode="off">
+  <div class="desktop" aria-hidden="true">
+    <div class="fake-window mail"><div class="bar"><i></i><i></i><i></i><span>Inbox</span></div>
+      <div class="rows"><p><b>Sam Rivera</b> Q4 numbers, final draft attached</p><p><b>Bank</b> Your statement is ready</p><p><b>Dr. Ito's office</b> Appointment reminder for Thursday</p><p><b>Mia</b> are we still on for the trip?</p><p><b>Landlord</b> Lease renewal paperwork</p></div></div>
+    <div class="fake-window doc active"><div class="bar"><i></i><i></i><i></i><span>Notes — draft</span></div>
+      <div class="page"><h2>Ideas for the launch</h2><p>Keep the first screen simple. One button, one promise. Everything else can wait until people ask for it.</p><p>Ship the free version first, then listen.</p><p>Questions for Thursday: pricing page, onboarding emails, and who owns support.</p></div></div>
+    <div class="fake-window chat"><div class="bar"><i></i><i></i><i></i><span>Messages</span></div>
+      <div class="bubbles"><p class="them">did you see the new office?</p><p class="me">yes!! the plants everywhere 🌿</p><p class="them">lunch tomorrow?</p><p class="me">12:30 works</p></div></div>
+  </div>
+  <canvas id="c"></canvas>
+  <div id="curtain" class="curtain" hidden>
+    <div class="clock"></div>
+    <div class="message"></div>
+    <small>Double-click or press Alt Shift X to come back</small>
+  </div>
+  <script type="module" src="js/overlay.js"></script>
+</body>
+</html>
